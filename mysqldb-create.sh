@@ -31,7 +31,7 @@ fi
 
 SQLFILE="/tmp/dbcreate.$(date +'%s%N')"
 
-#echo "create database $DB CHARACTER SET utf8 COLLATE utf8_general_ci;\n" > $SQLFILE
+echo "create database $DB CHARACTER SET utf8 COLLATE utf8_general_ci;\n" > $SQLFILE
 echo "grant SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, INDEX, ALTER, CREATE TEMPORARY TABLES, EXECUTE, CREATE ROUTINE, ALTER ROUTINE, LOCK TABLES on $DB.* to '$USERNAME'@'localhost';\n" >> $SQLFILE
 echo "set password for $USERNAME@'localhost' = password('$PASSWORD');\n" >> $SQLFILE
 echo "flush privileges;\n" >> $SQLFILE
