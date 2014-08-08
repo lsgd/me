@@ -12,15 +12,15 @@ def check_socket(arguments):
     try:
         sock.connect((host, 33))
         sock.close()
-    except msg:
+    except Exception as msg:
         return msg
     return True
 
 def check_url(arguments):
-    url = arguments[0]
+    url = arguments
     try:
         response = urllib2.urlopen(url)
-    except:
+    except Exception as msg:
         return msg
     return True
 
@@ -51,5 +51,5 @@ def check_url_content(arguments):
         if max_diff_ratio > r:
             return 'Max diff ratio: %s,   Current diff ratio: %s' % (r, max_diff_ratio)
         return True
-    except:
+    except Exception as msg:
         return msg
