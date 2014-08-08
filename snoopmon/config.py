@@ -5,7 +5,7 @@ import platform
 TMP_DIR = 'tmp'
 SMTP_TO = 'your@address.here'
 
-SMTP_FROM = 'root@%s' % platform.node()
+SMTP_FROM = platform.node()
 TIME = strftime('%Y-%m-%d %H:%M:%S', gmtime())
 
 SUBJECT = dict()
