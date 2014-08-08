@@ -12,12 +12,14 @@ def run(check, arguments):
     result = FUNCTION[check](arguments)
     
     if result is not True and result is not False:
-        subject = SUBJECT[check] % arguments
         if check == 'socket':
+            subject = SUBJECT[check] % (arguments[0], arguments[1])
             body = BODY[check] % (arguments[0], arguments[1], result)
         elif check == 'url':
+            subject = SUBJECT[check] % arguments[0]
             body = BODY[check] % (arguments[0], result)
         elif check == 'content':
+            subject = SUBJECT[check] % arguments[0]
             body = BODY[check] % (arguments[0], result)
         send_error(subject, body)
 

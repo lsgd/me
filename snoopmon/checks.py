@@ -3,7 +3,7 @@ from config import TMP_DIR
 import socket
 import urllib2
 # install python-levenshtein
-import Levenshtein
+#import Levenshtein
 
 def check_socket(arguments):
     host, port = arguments
@@ -11,7 +11,8 @@ def check_socket(arguments):
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     #sock.setblocking(0)  # optional non-blocking
     try:
-        sock.connect((host, 33))
+        sock.connect((host, port))
+        sock.recv(1024)
         sock.close()
     except Exception as msg:
         return msg
@@ -47,10 +48,14 @@ def check_url_content(arguments):
             return True
         
         # ratio 1 if same string
-        r = ratio(new_content, old_content)
+        #r = Levenshtein.ratio(new_content, old_content)
+        #r = 1.0 - r
+        len_new = len(new_content)
+        len_old = len(old_content)
+        r = (min(len_new, len_old) * 1.0) / max(len_new, len_old)
         r = 1.0 - r
-        if max_diff_ratio > r:
-            return 'Max diff ratio: %s,   Current diff ratio: %s' % (r, max_diff_ratio)
+        if max_diff_ratio < r:
+            return 'Max diff ratio: %s,   Current diff ratio: %0.3f' % (max_diff_ratio, r)
         return True
     except Exception as msg:
         return msg
