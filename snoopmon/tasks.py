@@ -1,4 +1,4 @@
 #!/usr/bin/env python
 TASKS = [
-    ('url', ('http://google.com')),
+    ('url', ('http://google.com',)),
 ]

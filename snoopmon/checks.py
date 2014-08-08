@@ -18,7 +18,7 @@ def check_socket(arguments):
     return True
 
 def check_url(arguments):
-    url = arguments
+    url = arguments[0]
     try:
         response = urllib2.urlopen(url)
     except Exception as msg:
