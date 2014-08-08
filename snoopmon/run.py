@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 from config import SUBJECT, BODY, FUNCTION
 from mail import send_error
 from tasks import TASKS

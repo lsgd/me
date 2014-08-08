@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 from config import TMP_DIR
 import socket
 import urllib2

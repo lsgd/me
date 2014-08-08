@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 from email.mime.text import MIMEText
 from subprocess import Popen, PIPE
 from config import SMTP_FROM, SMTP_TO

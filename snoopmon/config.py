@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 from time import gmtime, strftime
 import platform
 #import checks
