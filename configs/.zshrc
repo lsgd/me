@@ -48,6 +48,7 @@ zstyle ':completion:*:approximate:*' max-errors 1 numeric
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
 # bind keys with own commands
+# show correct keycodes for your keyboard with $ sudo showkey
 bindkey "^[[1~" beginning-of-line
 bindkey "^[OH" beginning-of-line
 bindkey "^[[4~" end-of-line
